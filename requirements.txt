@@ -1,6 +1,5 @@
 config
 discord
-time
 asyncio
 discord.ext.commands
 discord.ext
