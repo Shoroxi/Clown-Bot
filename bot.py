@@ -4,12 +4,8 @@ from discord.ext.commands import Bot
 from discord import utils
 import config
 import discord
-import random
 import time
 import asyncio
-
-
-gay = ['100%! да ты бомба', '99% -_-.. а где уй в жопе?', '93%', '91%',  '89%',  '87%',  '85%',  '83%','81%', '79%', '77%', '75%', '73%', '71%', '69%', '67%', '65%', '63%', '60%', '59%', '57%',  '55%',  '53%', '51%', '50% истинный баланс', '49% а дотянуть не мог а?', '48%а дотянуть не мог а?', '47%', '45%', '43%', '42%', '40%', '38%', '36%', '34%', '32%',  '30%', '28%',  '26%',  '24%', '22%',  '20%',  '18%',  '16%',  '14%',  '12%',  '10%', '9% ты на грани', '8% ты на грани', '7% ты на грани', '6% ты на грани', '5% ты на грани', '4% ты на грани', '3% ты на грани', '2% ты на грани', '1% ты на грани', '0% кажется тебе здесь не место']
 
 
 
@@ -27,37 +23,7 @@ class DiscordBot(discord.Client):
 
         if message.content =='xtoya':
             await message.channel.send('u is a trap')
-
-        if message.content == 'howgay':
-            await message.channel.send(random.choice(gay))
-            
-
-        if message.content == 'Удаляй сервак к чертям':
-            await message.channel.send('Как скажете, повелитель')
-            time.sleep(5)
-            await message.channel.send ("10")
-            time.sleep(1)
-            await message.channel.send("9")
-            time.sleep(1)
-            await message.channel.send('8')
-            time.sleep(1)
-            await message.channel.send('7')
-            time.sleep(1)
-            await message.channel.send('6')
-            time.sleep(1)
-            await message.channel.send('5')
-            time.sleep(1)
-            await message.channel.send('4')
-            time.sleep(1)
-            await message.channel.send('3')
-            time.sleep(1)
-            await message.channel.send('2')
-            time.sleep(1)
-            await message.channel.send('1')
-            time.sleep(1)
-            await message.channel.send('0')
-            time.sleep(1)
-            await message.channel.send('fuck this gay Earth')
+           
 
     async def on_raw_reaction_add(self, payload):
         channel = self.get_channel(payload.channel_id) # получаем объект канала
