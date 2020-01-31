@@ -1,6 +1,5 @@
 config
 discord
-random
 time
 asyncio
 discord.ext.commands
