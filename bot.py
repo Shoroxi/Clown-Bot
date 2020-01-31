@@ -4,7 +4,6 @@ from discord.ext.commands import Bot
 from discord import utils
 import config
 import discord
-import time
 import asyncio
 
 
