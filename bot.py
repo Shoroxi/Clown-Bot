@@ -100,4 +100,4 @@ class DiscordBot(discord.Client):
 
 
 client = DiscordBot()
-client.run(config.TOKEN)
+token = os.environ.get(BOT_TOKEN)
