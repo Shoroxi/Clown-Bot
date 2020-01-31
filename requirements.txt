@@ -1,6 +1,6 @@
 config
 discord
 asyncio
-commands
-Bot
-utils
+from discord.ext-commands
+from discord.ext.commands-Bot
+from discord-utils
