@@ -1,4 +1,3 @@
-import config
 import discord
 import random
 import time
@@ -7,7 +6,17 @@ from discord.ext import commands
 from discord.ext.commands import Bot
 from discord import utils
 
-
+TOKEN = 'NjA2MzY5NDY2NjYxNzMyMzUz.XinK_Q.tMYU8Ek8wnm57fqY358hHyH8Ug8'
+POST_ID = 672367971506585600
+ROLES = {
+    '🕵️‍♂️': 670261518771814401, #softach
+    '🎨': 670261516465078315, #3d artist
+    '💰': 670261506746613781, #buisnessman
+    '👌': 672421337628934183, #drochun
+    '👩‍🎤': 670264436895907861, #anime
+}
+EXCROLES = (659359121228824586,)
+MAX_ROLES_PER_USER = 30
 gay = ['100%! да ты бомба', '99% -_-.. а где уй в жопе?', '93%', '91%',  '89%',  '87%',  '85%',  '83%','81%', '79%', '77%', '75%', '73%', '71%', '69%', '67%', '65%', '63%', '60%', '59%', '57%',  '55%',  '53%', '51%', '50% истинный баланс', '49% а дотянуть не мог а?', '48%а дотянуть не мог а?', '47%', '45%', '43%', '42%', '40%', '38%', '36%', '34%', '32%',  '30%', '28%',  '26%',  '24%', '22%',  '20%',  '18%',  '16%',  '14%',  '12%',  '10%', '9% ты на грани', '8% ты на грани', '7% ты на грани', '6% ты на грани', '5% ты на грани', '4% ты на грани', '3% ты на грани', '2% ты на грани', '1% ты на грани', '0% кажется тебе здесь не место']
 
 
@@ -64,9 +73,9 @@ class DiscordBot(discord.Client):
  
         try:
             emoji = str(payload.emoji) # эмоджик который выбрал юзер
-            role = utils.get(message.guild.roles, id=config.ROLES[emoji]) # объект выбранной роли (если есть)
+            role = utils.get(message.guild.roles, id=ROLES[emoji]) # объект выбранной роли (если есть)
        
-            if(len([i for i in member.roles if i.id not in config.EXCROLES]) <= config.MAX_ROLES_PER_USER):
+            if(len([i for i in member.roles if i.id not in EXCROLES]) <= MAX_ROLES_PER_USER):
                 await member.add_roles(role)
                 print('[SUCCESS] User {0.display_name} has been granted with role {1.name}'.format(member, role))
             else:
@@ -85,7 +94,7 @@ class DiscordBot(discord.Client):
  
         try:
             emoji = str(payload.emoji) # эмоджик который выбрал юзер
-            role = utils.get(message.guild.roles, id=config.ROLES[emoji]) # объект выбранной роли (если есть)
+            role = utils.get(message.guild.roles, id=ROLES[emoji]) # объект выбранной роли (если есть)
  
             await member.remove_roles(role)
             print('[SUCCESS] Role {1.name} has been remove for user {0.display_name}'.format(member, role))
@@ -98,4 +107,4 @@ class DiscordBot(discord.Client):
 
 
 client = DiscordBot()
-client.run(config.TOKEN)
+client.run(TOKEN)
