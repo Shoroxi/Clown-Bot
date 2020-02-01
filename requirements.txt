@@ -1,5 +1,4 @@
 discord.py
 asyncio
-shardet
 websockets
 aiohttp
