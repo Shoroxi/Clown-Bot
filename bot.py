@@ -1,11 +1,8 @@
 import discord
-import time
-import random
 import config
+import random
 import asyncio
-import math
 import aiohttp
-import json
 from discord import utils
 from discord.ext.commands import Bot
 from discord.ext import commands
@@ -57,17 +54,7 @@ class MyClient(discord.Client):
         except KeyError as e:
             print('[ERROR] KeyError, no role found for ' + emoji)
         except Exception as e:
-            print(repr(e))
-
-    async def on_message(self, message):
-        if message.content == '!hello':
-            msg = 'Hello {0.author.mention}'.format(message)
-            await message.channel.send(msg)
-        if message.content == "square":
-            await message.channel.send("Введите число, которое вы хотите возвести в квадрат")
-            x = float(input())
-            xs =  x*x
-            await message.channel.send(xs)    
+            print(repr(e))   
 
 client = MyClient()
 client.run(config.TOKEN)
