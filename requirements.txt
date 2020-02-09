@@ -6,3 +6,10 @@ discord.py
 asyncio
 websockets
 aiohttp
+discord
+math
+json
+discord.ext.commands 
+discord.ext import
+time
+random
