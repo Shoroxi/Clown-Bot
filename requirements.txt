@@ -12,3 +12,10 @@ re
 xml.etree.ElementTree
 io
 os
+time
+platform
+inspect
+textwrap
+datetime
+timedelta
+collections
