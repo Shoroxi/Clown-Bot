@@ -41,7 +41,6 @@ beautifulsoup4==4.8.2
 bs4==0.0.1
 certifi==2019.11.28
 cffi==1.14.0
-chardet==3.0.4
 colorama==0.4.3
 colorthief==0.2.1
 cr-py==1.2.7
