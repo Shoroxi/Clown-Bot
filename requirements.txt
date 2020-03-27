@@ -19,3 +19,13 @@ textwrap
 datetime
 timedelta
 collections
+math
+json
+discord.ext 
+traceback
+sqlite3
+urllib.parse
+validators
+BucketType
+gmtime
+strftime
