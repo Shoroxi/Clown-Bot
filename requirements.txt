@@ -29,3 +29,9 @@ validators
 BucketType
 gmtime
 strftime
+logging
+logging.handlers
+traceback
+hashlib
+collections 
+discord.utils
