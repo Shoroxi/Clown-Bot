@@ -20,13 +20,6 @@ import loadconfig
 import json
 __version__ = '1.3.1'
 
-logger = logging.getLogger('discord')
-#logger.setLevel(logging.DEBUG)
-logger.setLevel(logging.WARNING)
-handler = RotatingFileHandler(filename='discordbot.log', maxBytes=1024*5, backupCount=2, encoding='utf-8', mode='w')
-handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
-logger.addHandler(handler)
-
 def get_prefix(client, message):
     with open('prefixes.json', 'r')as f:
         prefixes = json.load(f)
