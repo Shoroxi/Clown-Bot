@@ -35,3 +35,5 @@ traceback
 hashlib
 collections 
 discord.utils
+concurrent 
+urllib
