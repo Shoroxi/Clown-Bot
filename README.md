@@ -1,0 +1,2 @@
+# dimonoid-bot
+TEST
