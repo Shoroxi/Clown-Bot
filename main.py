@@ -20,15 +20,9 @@ import loadconfig
 import json
 __version__ = '1.3.1'
 
-def get_prefix(client, message):
-    with open('prefixes.json', 'r')as f:
-        prefixes = json.load(f)
-    return prefixes[str(message.guild.id)]
-
 description = ''' бот, разработанный с discord.py\n
                  Полный список всех команд доступен здесь: '''
 bot = commands.Bot(command_prefix=get_prefix, description=description)
-os.chdir(r'C:\Users\mspox\Desktop\demonoid')
 @bot.event
 async def on_guild_join(guild):
     with open('prefixes.json', 'r') as f:
@@ -44,16 +38,6 @@ async def on_guild_remove(guild):
     prefixes.pop(str(guild.id))
     with open('prefixes.json', 'w') as f:
         json.dump(prefixes,f,indent=4)
-
-@bot.command()
-async def changeprefix(ctx, prefix):
-    with open('prefixes.json', 'r') as f:
-        prefixes = json.load(f)
-    prefixes[str(ctx.guild.id)] = prefix
-    with open('prefixes.json, "w') as f:
-        json.dump(prefixes, f, indent=4)
-        await ctx.send(f'Префикс был изменен на {prefix}')
-
 
 async def _randomGame():
     #Check games.py to change the list of "games" to be played
@@ -115,33 +99,9 @@ async def on_member_join(member):
             channel = member.guild.get_channel(loadconfig.__greetmsg__)
             emojis = [':wave:', ':congratulations:', ':wink:', ':cool:', ':tada:']
             await channel.send(random.choice(emojis)+ f'**Привествуем** тебя @{member.name} на сервере - **Gay Bar:Reborn**, **возми себе роли и прочитай правила(нет)**, для доступа в каналы с определенной тематикой.')
-
-    with open('users.json', 'r') as f:
-        users = json.load(f)
- 
- 
-    await update_data(users, member)
- 
-   
-    with open('users.json', 'w') as f:
-        json.dump(users, f)
  
 @bot.event
 async def on_message(message):
-    if message.author.bot == False:
-        with open('users.json', 'r') as f:
-            users = json.load(f)
- 
- 
-        await update_data(users, message.author)
-        await add_experience(users, message.author, 5)
-        await level_up(users, message.author, message)
-   
-   
-        with open('users.json', 'w') as f:
-            json.dump(users, f)
-
-
     if message.author.bot:
         return
     if isinstance(message.channel, discord.DMChannel):
@@ -159,23 +119,6 @@ async def on_message(message):
     if 'instagram.com' in message.clean_content.lower():
         await message.add_reaction('💩') # :poop:
     await bot.process_commands(message)
- 
-async def update_data(users, user):
-    if not f'{user.id}' in users:
-        users[f'{user.id}'] = {}
-        users[f'{user.id}']['experience'] = 0
-        users[f'{user.id}']['level'] = 1
- 
-async def add_experience(users, user, exp):
-    users[f'{user.id}']['experience'] += exp
- 
-async def level_up(users, user, message):
-    experience = users[f'{user.id}']['experience']
-    lvl_start = users[f'{user.id}']['level']
-    lvl_end = int(experience ** (1/4))
-    if lvl_start < lvl_end:
-        await message.channel.send(f'{user.mention} has leveled up to level {lvl_end}')
-        users[f'{user.id}']['level'] = lvl_end
 
 @bot.event
 async def on_member_remove(member):
