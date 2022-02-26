@@ -1,2 +1,3 @@
 # dimonoid-bot
-TEST
+
+Какой-то старый discord bot
