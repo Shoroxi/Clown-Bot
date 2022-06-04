@@ -1,4 +1,4 @@
-# dimonoid-bot
+# CLOW
 
 Какой-то старый discord bot
 
