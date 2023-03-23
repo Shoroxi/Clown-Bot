@@ -1,5 +1,2 @@
-# CLOW
-
-Какой-то старый discord bot
-
-некоторые коги так и не доделал вроде
+# Clown-bot
+Старый discord bot
